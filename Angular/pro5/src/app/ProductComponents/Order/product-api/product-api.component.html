@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+            <head>
+                <title>example</title>
+                <script data-require="jquery@*" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+              </head>
+<body>
+<div class="container-fluid" style="padding-bottom:15px">
+  <br>
+    <h3>Eng/ 3li G </h3>
+<br>
+    <div><h5> Total Price = {{totalPrice}} </h5></div>
+<br>
+<table class="table table-dark and table-striped" style="text-align: center">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">BRAND</th>
+            <th scope="col">MODEL</th>
+            <th scope="col">COLOR</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">WEIGHT</th>
+            <th scope="col">QUANTITY</th>
+            <th scope="col">Required</th>
+            <th scope="col">Show</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Buy</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let prdApi of myProductListApi ; let i=index">
+            <td>{{prdApi._id}}</td>
+            <td>{{prdApi.name}}</td>
+            <td>{{prdApi.brand}}</td>
+            <td>{{prdApi.model}}</td>
+            <td>{{prdApi.color}}</td>
+            <td>{{prdApi.price}}</td>
+            <td>{{prdApi.weight}}</td>
+            <td id="QUANTITY{{prdApi._id}}">{{prdApi.quantity}}</td>
+            <td style="display:none" id="QUANTITY_COPY{{prdApi._id}}">{{prdApi.quantity}}</td>
+            <td><input id="required_quantity{{prdApi._id}}"  #required type="number"
+                 min="0" max="{{prdApi.quantity}}" /></td>
+            <td><button class="btn btn-primary" (click)="showProductApi(prdApi.name)" >Show</button></td>
+            <td><button class="btn btn-danger"  (click)="deleteProductApi(prdApi.name)">Delete</button></td>
+            <td><button class="btn  btn-warning"  (click)="editProductApi(prdApi.name,prdApi._id)">Edit</button></td>
+            <td><button id="{{prdApi._id}}" class="btn btn-success" onclick="fun(this.id)" (click)="buyProductApi(prdApi,required.value)">Buy</button></td>
+
+        </tr>
+    </tbody>
+    </table>
+
+    <br>
+
+    <button class="btn btn-success" (click)=addProductApi()>AddNewProduct</button>
+
+    <br>
+
+</div>
+
+</body>
+</html>

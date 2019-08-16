@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <title>Update Product</title>
+  <style>
+    .ng-valid[required],
+    .ng-valid.required {
+      border-left: 5px solid #42A948;
+    }
+
+    .ng-invalid:not(form) {
+      border-left: 5px solid #a94442;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1 class=''>Edit Product</h1>
+
+<p>edit-product-api works!</p>
+
+<div class="container">
+<div class="row">
+
+<form class="form" #myform="ngForm" (ngSubmit)=goToEditProduct(myform)>
+  <div class="form-group">
+      <label>Name:</label>  <input class="form-control" name="name" [(ngModel)]="name"  readonly/> 
+    </div>
+  <div class="form-group">
+      <label>Price:</label>  <input class="form-control" name="price" [(ngModel)]="price" type="number"
+       min="1" required> 
+    </div>
+  <div class="form-group">
+     <label>Brand:</label>  <input class="form-control" name="brand" [(ngModel)]="brand" type="text" required> 
+  </div>
+  <div class="form-group">
+     <label>Model:</label>  <input class="form-control" name="model" [(ngModel)]="model" type="number" 
+     min="1" required> 
+  </div>
+  <div class="form-group">
+     <label>Color:</label>  <input class="form-control" name="color" [(ngModel)]="color" type="text" required> 
+  </div>
+  <div class="form-group">
+     <label>Quantity:</label> <input class="form-control" name="quantity" [(ngModel)]="quantity" type="number"
+     min="1" required> 
+  </div>
+  <div class="form-group">
+     <label>Weight:</label>  <input class="form-control" name="weight" [(ngModel)]="weight" type="number" 
+     min="1" required> 
+  </div>
+  <div class="form-group">
+      <!----input type="submit" class="btn btn-danger" value="send"  -->
+      <button [disabled]="!myform.valid" type="submit" class="btn btn-primary btn-sm btn-block">Submit</button>
+      </div>
+   </form>
+
+</div>
+</div>
+
+</body>
+</html>

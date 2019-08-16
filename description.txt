@@ -1,0 +1,4 @@
+
+install all packages in angular and nodejs using
+>>>>>>>>>>>>>>>>>>>>>>>>
+npm install

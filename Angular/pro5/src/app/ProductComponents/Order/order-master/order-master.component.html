@@ -1,0 +1,27 @@
+<div class="container-fluid">
+<!----p>order-master works!</p-->
+<div id="products">
+    <br><br>
+    <div>
+        <p>orderTotalPriceFrmDetails:{{orderTotalPriceFrmDetails}}</p>
+        </div>
+
+    <form>
+
+    <select name="cat" [(ngModel)]="selectedCatId">
+
+    <option *ngFor="let cat of CatList" value='{{cat.ID}}'> {{cat.Name}} </option>
+
+    </select>
+
+<div>
+for testing catId : {{selectedCatId}}
+<app-order-details (totalPriceChanged)="onTotalPriceChanged($event)" 
+[selectedCatIDFrmMaster]="selectedCatId"></app-order-details>
+</div>
+
+</form>
+
+</div>
+
+</div>

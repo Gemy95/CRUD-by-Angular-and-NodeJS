@@ -1,0 +1,33 @@
+
+<!----p>order-details works!</p-->
+
+<table class="table">
+<thead class="thead-light">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">AVALIABLE QUANTITY</th>
+        <th scope="col">NEEDED QUANTITY</th>
+        <th scope="col">SHOW DETAILS</th>
+        <th scope="col">BUY</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let prd of prdListOfselCat">
+        <td>{{prd.ID}}</td>
+        <td>{{prd.Name}}</td>
+        <td>{{prd.Price}}</td>
+        <td>{{prd.Quantity}}</td>
+        <td><input #itemCount type="number" min="0"/></td>
+        <td><button class="btn btn-primary" (click)='gotoDetails(prd.ID)'>ShowDetails</button></td>
+        <td><button class="btn btn-danger"
+             (click)="onBuyClick(prd.Price,itemCount.value,prd.ID)">Add To Cart</button></td>
+    </tr>
+</tbody>
+</table>
+
+<div>
+    test of TotalPrice:{{orderTotalPrice}}
+</div>
+
